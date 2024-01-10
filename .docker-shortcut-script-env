@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-ENV_SCRIPT_DIR_LEVEL_02=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+ENV_SCRIPT_DIR_LEVEL_00=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 
 runningImageContainerWrapperScript() {
-    # Run the docker-return-running-container-id.bash with the same general behavior, but with different options and values that are passed in
+    # Run the docker-return-running-container-id with the same general behavior, but with different options and values that are passed in
     RETURN_RUNNING_CONTAINER_ID_OPTION=$1
     RETURN_RUNNING_CONTAINER_ID_PASSED_IN_VALUE=$2
 
-    RUNNING_IMAGE_CONTAINER_ID=$("${SCRIPT_DIR}"/docker-return-running-container-id.bash "${RETURN_RUNNING_CONTAINER_ID_OPTION}" "${RETURN_RUNNING_CONTAINER_ID_PASSED_IN_VALUE}")
+    RUNNING_IMAGE_CONTAINER_ID=$("${SCRIPT_DIR}"/docker-return-running-container-id "${RETURN_RUNNING_CONTAINER_ID_OPTION}" "${RETURN_RUNNING_CONTAINER_ID_PASSED_IN_VALUE}")
 
     RUNNING_IMAGE_CONTAINER_ID_STRING_LENGTH=${#RUNNING_IMAGE_CONTAINER_ID}
     if [ "${RUNNING_IMAGE_CONTAINER_ID_STRING_LENGTH}" -gt 12 ]; then
